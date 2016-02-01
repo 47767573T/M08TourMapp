@@ -88,9 +88,6 @@ public class F_Main extends Fragment
                 Intent intentMap = new Intent(getActivity().getApplication(), A_Map.class);
                 startActivity(intentMap);
                 return false;
-
-
-
         }
         return false;
     }

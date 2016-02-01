@@ -1,11 +1,15 @@
 package app.m08tourmapp;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -13,11 +17,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class A_Map extends FragmentActivity implements OnMapReadyCallback {
+public class A_Map extends FragmentActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener {
 
-    static final LatLng ecaibCoordenadas =  new LatLng (41.39834,2.20318);
+    public LatLng actualCoord = new LatLng (41.39834,2.20318);
+    static final LatLng ecaibCoord =  new LatLng (41.39834,2.20318);
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-
+    public LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +42,6 @@ public class A_Map extends FragmentActivity implements OnMapReadyCallback {
         setUpMapIfNeeded();
     }
 
-
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
@@ -46,22 +50,26 @@ public class A_Map extends FragmentActivity implements OnMapReadyCallback {
                     .getMap();
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
-                setUpMap();
+                //setUpMap();
             }
         }
     }
 
-
-    private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("CERO-CERO"));
+    private void setUpMap(String name, int latitud, int longitud) {
+        mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title("name"));
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        mMap.addMarker(new MarkerOptions().position(ecaibCoordenadas).title("ECAIB"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(ecaibCoordenadas));
+        mMap.addMarker(new MarkerOptions().position(ecaibCoord).title("ECAIB"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(ecaibCoord));
+    }
+
+
+    @Override
+    public void onLocationChanged(Location location) {
 
     }
 }
