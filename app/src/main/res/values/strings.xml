@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_nombre">M08TourMapp</string>
+    <string name="app_nombre">MapsTourBar</string>
     <string name="hello_world">Hello world!</string>
     <string name="Ajustes">Ajustes</string>
     <string name="titulo_A_map">Map</string>

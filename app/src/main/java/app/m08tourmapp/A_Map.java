@@ -19,6 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class A_Map extends FragmentActivity implements OnMapReadyCallback, LocationSource.OnLocationChangedListener {
 
+
     public LatLng actualCoord = new LatLng (41.39834,2.20318);
     static final LatLng ecaibCoord =  new LatLng (41.39834,2.20318);
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
