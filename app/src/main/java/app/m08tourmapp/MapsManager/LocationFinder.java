@@ -5,6 +5,6 @@ package app.m08tourmapp.MapsManager;
  */
 public class LocationFinder {
 
-    MyLocation mylocation
+    //MyLocation mylocation
 
 }

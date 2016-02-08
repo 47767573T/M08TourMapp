@@ -48,9 +48,12 @@ public class F_Main extends Fragment
 
         _imbtMostrar = (ImageButton) mainView.findViewById(R.id.imbtMostrar);
         //_imbtMostrar.setOnClickListener(this);
+
+
         Log.e("prueba1", "XXX: antes de comenzar actividad de mapa por metodo implementado");
         Intent intentMap = new Intent(getActivity().getApplication(), A_Map.class);
         startActivity(intentMap);
+
         _imbtMostrar.setOnLongClickListener(this);
 
         return mainView;
